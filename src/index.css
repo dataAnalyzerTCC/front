@@ -29,8 +29,13 @@ input[type="reset"] {
 #root {
   display: flex;
   flex-direction: row;
+  flex: 1;
+  max-height: 100vh;
 }
 
 #root > div {
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  overflow-y: scroll;
 }

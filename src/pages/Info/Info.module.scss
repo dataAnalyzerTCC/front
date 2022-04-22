@@ -1,0 +1,40 @@
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 80vw;
+
+    table {
+      width: 60vw;
+    }
+
+    tr {
+      &:nth-child(1) {
+        background-color: darkgray;
+      }
+
+      &:nth-child(2n) {
+        background-color: rgb(236, 236, 236);
+      }
+
+      th {
+        color: white;
+      }
+
+      td {
+        text-align: center;
+
+        &:nth-child(1) {
+          width: 30rem;
+        }
+      }
+    }
+  }
+}

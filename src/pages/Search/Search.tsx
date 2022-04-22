@@ -1,5 +1,6 @@
 import api from "api";
 import axios from "axios";
+import { useWebSockets } from "contexts/websockets";
 import React, { useEffect, useState } from "react";
 import { capitalize } from "utils/string";
 import styles from "./Search.module.scss";
@@ -37,6 +38,8 @@ const levels: { name: keyof AccessLevels; displayName: string }[] = [
 ];
 
 const Search: React.FC = () => {
+  const { connect } = useWebSockets();
+
   const [message, setMessage] = useState<string>("");
   const [filters, setFilters] = useState<SelectableFilter[]>([]);
   const [directoryPath, setDirectoryPath] = useState<string>("");
@@ -78,7 +81,7 @@ const Search: React.FC = () => {
             .map((level, index) => (level ? 2 ** index : 0))
             .reduce((prev, curr) => prev + curr, 0)
         ),
-        filters.map((filter) => filter.name)
+        filters.filter((filter) => filter.checked).map((filter) => filter.name)
       );
     } catch (e: any) {
       console.error(e);
@@ -101,6 +104,7 @@ const Search: React.FC = () => {
         console.error(e);
       }
     })();
+    connect();
   }, []);
 
   return (

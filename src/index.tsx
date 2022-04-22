@@ -3,14 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import RootRoutes from "./routes/RootRoutes";
 import reportWebVitals from "./reportWebVitals";
+import RootContexts from "contexts";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  <RootContexts>
     <RootRoutes />
-  </React.StrictMode>
+  </RootContexts>
 );
 
 // If you want to start measuring performance in your app, pass a function
