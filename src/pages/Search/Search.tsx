@@ -5,9 +5,9 @@ import { capitalize } from "utils/string";
 import styles from "./Search.module.scss";
 
 interface AccessTypes {
-  read: boolean;
-  write: boolean;
   execute: boolean;
+  write: boolean;
+  read: boolean;
 }
 
 interface AccessLevels {
@@ -42,19 +42,19 @@ const Search: React.FC = () => {
   const [directoryPath, setDirectoryPath] = useState<string>("");
   const [accessLevels, setAccessLevels] = useState<AccessLevels>({
     user: {
-      read: false,
-      write: false,
       execute: false,
+      write: false,
+      read: false,
     },
     group: {
-      read: false,
-      write: false,
       execute: false,
+      write: false,
+      read: false,
     },
     public: {
-      read: false,
-      write: false,
       execute: false,
+      write: false,
+      read: false,
     },
   });
 
@@ -131,19 +131,19 @@ const Search: React.FC = () => {
               <div>
                 <input
                   type="checkbox"
-                  name={`${level.name}-read`}
-                  value={`${level.name}-read`}
-                  id={`${level.name}-read`}
-                  checked={accessLevels[level.name].read}
+                  name={`${level.name}-execute`}
+                  value={`${level.name}-execute`}
+                  id={`${level.name}-execute`}
+                  checked={accessLevels[level.name].execute}
                   onChange={() =>
                     handleCheckbox(
                       level.name,
-                      "read",
-                      !accessLevels[level.name].read
+                      "execute",
+                      !accessLevels[level.name].execute
                     )
                   }
                 />
-                <label htmlFor={`${level.name}-read`}>Leitura</label>
+                <label htmlFor={`${level.name}-execute`}>Executar</label>
                 <input
                   type="checkbox"
                   name={`${level.name}-write`}
@@ -161,19 +161,19 @@ const Search: React.FC = () => {
                 <label htmlFor={`${level.name}-write`}>Escrita</label>
                 <input
                   type="checkbox"
-                  name={`${level.name}-execute`}
-                  value={`${level.name}-execute`}
-                  id={`${level.name}-execute`}
-                  checked={accessLevels[level.name].execute}
+                  name={`${level.name}-read`}
+                  value={`${level.name}-read`}
+                  id={`${level.name}-read`}
+                  checked={accessLevels[level.name].read}
                   onChange={() =>
                     handleCheckbox(
                       level.name,
-                      "execute",
-                      !accessLevels[level.name].execute
+                      "read",
+                      !accessLevels[level.name].read
                     )
                   }
                 />
-                <label htmlFor={`${level.name}-execute`}>Executar</label>
+                <label htmlFor={`${level.name}-read`}>Leitura</label>
               </div>
             </React.Fragment>
           );
