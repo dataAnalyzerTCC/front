@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .accessLevels {
+    label {
+      margin-right: 2rem;
+    }
+  }
+
+  .searchBtn {
+    margin-top: 2rem;
+    background-color: #1b1b1b;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 100vh;
+  }
+
+  .filters {
+    div {
+      justify-content: flex-start;
+      width: 20vw;
+    }
+  }
+}
