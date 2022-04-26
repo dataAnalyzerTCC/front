@@ -2,6 +2,7 @@ import api from "api";
 import axios from "axios";
 import { useWebSockets } from "contexts/websockets";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { capitalize } from "utils/string";
 import styles from "./Search.module.scss";
 
@@ -39,6 +40,7 @@ const levels: { name: keyof AccessLevels; displayName: string }[] = [
 
 const Search: React.FC = () => {
   const { connect } = useWebSockets();
+  const navigate = useNavigate();
 
   const [message, setMessage] = useState<string>("");
   const [filters, setFilters] = useState<SelectableFilter[]>([]);
@@ -83,6 +85,7 @@ const Search: React.FC = () => {
         ),
         filters.filter((filter) => filter.checked).map((filter) => filter.name)
       );
+      navigate("/results");
     } catch (e: any) {
       console.error(e);
       if (axios.isAxiosError(e)) {
