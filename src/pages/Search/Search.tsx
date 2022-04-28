@@ -207,9 +207,7 @@ const Search: React.FC = () => {
                 }
               />
               <label htmlFor={filter.name}>
-                {filter.name.split(" ").length > 1
-                  ? capitalize(filter.name)
-                  : filter.name.toUpperCase()}
+                {filter.name}
               </label>
             </div>
           );

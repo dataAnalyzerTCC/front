@@ -38,7 +38,6 @@ const WebSocketsProvider: React.FC<{ children: React.ReactNode }> = ({
     const _connection = io(wsUrl);
 
     _connection.on("message", (data) => {
-      console.log(data);
       if ("word" in data) {
         setReceivedMessages((prev) => [
           ...prev,

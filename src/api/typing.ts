@@ -1,6 +1,6 @@
 export interface GetFiltersResponse {
   filters: {
-    personal: ("cpf" | "cnpj" | "tipo sangúineo" | "data de nascimento")[];
+    personal: string[];
   };
 }
 
